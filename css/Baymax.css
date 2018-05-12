@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #A9181F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 摇头动画 */
+@keyframes shake-head {
+    0% {
+        transform: rotateZ(0deg)
+    }
+    20% {
+        transform: rotateZ(0deg)
+    }
+    90% {
+        transform: rotateZ(20deg)
+    }
+    100%  {
+        transform: rotateZ(20deg)
+    }
+}
+/* 眨眼动画 */
+@keyframes blink {
+    0% {
+        transform: rotateX(0deg)
+    }
+    25% {
+        transform: rotateX(180deg)
+    }
+    75% {
+        transform: rotateX(180deg)
+    }
+    100%  {
+        transform: rotateX(0deg)
+    }
+}
+@keyframes hello {
+    0% {
+        transform: rotateZ(0deg) translateX(10px) rotate(0deg)
+    }
+    100% {
+        transform: rotateZ(-360deg) translateX(10px) rotate(360deg)
+    }
+}
+#Baymax {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 100px;
+}
+
+/* S = 头部 */
+#head {
+    width: 130px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: linear-gradient(0deg,#E0E0E0,white 50%,white 100% );
+    animation: shake-head 4s infinite alternate;
+    position: absolute;
+    top: -80px;
+    z-index: 1;
+}
+
+.face {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: blink 4s infinite;
+}
+
+.left-eye,.right-eye {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;}
+
+.nose {
+    flex-grow: 2;
+    border: 3px solid black;
+}
+/* E = 头部 */
+
+/* S = 身体 */
+#body {
+    width: 300px;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 70% 70% 55% 55%;
+    position: relative;
+    background: radial-gradient(white, white 50%,#E0E0E0 );    
+    background-color: #FFFFFF;
+}
+#body::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #DDDDDD;
+    position: absolute;
+    right: 50px;
+    top: 100px;
+}
+.left-hand {
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    border-radius: 70%;
+    transform: rotateZ(-60deg);
+    position: absolute;
+    top: 62px;
+    left: -53px;
+    z-index: -1;
+    background: #EEEEEE;
+}
+.right-hand {
+    border: 1px solid black;
+    width: 400px;
+    height: 170px;
+    border-radius: 50%;
+    transform: rotateZ(57deg);
+    position: absolute;
+    top: 97px;
+    left: 50px;
+    background: #ECECEC;
+    z-index: -1;
+}
+.finger1 {
+    border: 1px solid black;
+    width: 35px;
+    height: 40px;
+    border-radius: 33% 60% 30% 30%;
+    position: absolute;
+    right: 4px;
+    bottom: 16px;
+    transform: rotateZ(-57deg);
+    background: #EBEBEB;
+    border-top-color: transparent;
+}
+.finger2 {
+    border: 1px solid black;
+    width: 34px;
+    height: 57px;
+    position: absolute;
+    right: -23px;
+    bottom: 37px;
+    border-radius: 60% 18% 33% 33%;
+    transform: rotateZ(-46deg);
+    border-top-color: transparent;
+    background: #EBEBEB;
+}
+.palm {
+    border: 1px solid black;
+    width: 120px;
+    height: 200px;
+    border-radius: 30% 30% 65% 65%;
+    position: absolute;
+    top: 50px;
+    left: -60px;
+    background: #E8E8E8;
+    animation: hello 3s infinite;
+}
+.palm::before {
+    content: '';
+    display: block;
+    border: 1px solid black;
+    width: 78px;
+    height: 26px;
+    border-radius: 50%;
+    transform: rotateZ(-20deg);
+    border-top-color: transparent;
+}
+.palm::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 25px;
+    box-shadow: 0 2px 1px #AAA;
+    border-radius: 50%;
+    transform: translate(10px,50px)
+}
+.left-finger {
+    border: 1px solid black;
+    width: 30px;
+    height: 40px;
+    background: #EDEDED;
+    position: absolute;
+    border-radius: 60% 60% 0 0;
+    top: 500px;
+    left: 600px;
+    border-bottom-color: transparent;
+}
+.left-finger:first-child {
+    left: 2px;
+    top: -18px;
+}
+.left-finger:nth-child(2) {
+    left: 31px;
+    top: -30px;
+}
+.left-finger:nth-child(3) {
+    left: 62px;
+    top: -30px;
+    transform: rotateZ(-8deg);
+}
+.left-finger:last-child {
+    border: 1px solid #bAbAbA;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 10% 10% 50%;
+    left: 70px;
+    top: 20px;
+}
+.left-finger:last-child::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50% 50% 20% 50%;
+    position: absolute;
+    top: -25px;
+    right: 1px;
+    border-bottom-color: transparent;
+    z-index: 10;
+    background: #EDEDED;
+}
+/* E = 身体 */
+/* S = 脚 */
+#foot {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-80px);
+    z-index: -1;
+}
+.left-foot {
+    border: 1px solid black;
+    width: 100px; 
+    height: 200px;
+    border-radius: 50px 0 20px 55%;
+    background: #E5E5E5;
+    position: relative;
+    overflow: hidden;
+}
+.left-foot::before {
+    content: '';
+    width: 50px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: #DDDDDD;
+    position: absolute;
+    top: 20px;
+    left: -20px;
+}
+.left-foot::after {
+    content: '';
+    display: block;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.right-foot {
+    border: 1px solid black;
+    width: 100px; 
+    height: 200px;
+    border-radius: 0px 50px 55% 20px;
+    background: #E5E5E5;
+    position: relative;
+    overflow: hidden;
+}
+.right-foot::before {
+    content: '';
+    width: 50px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: #DDDDDD;
+    position: absolute;
+    right: -20px;
+    top: 20px;
+}
+.right-foot::after {
+    content: '';
+    display: block;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/* E = 脚 */
